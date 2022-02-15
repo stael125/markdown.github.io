@@ -18,7 +18,7 @@
 
 // Set options
 // the update function 
- function updatePreview(){
+function updatePreview(){
    let previewElement = document.getElementById('preview');
    let editorValue = document.getElementById('editor').value;
     let markedUpHTML = marked.parse(editorValue);
@@ -31,13 +31,24 @@ let defaultText= `# hi I am Jean Stael
 ## I am an experienced and passionate web developper
 [I'm an inline-style link](https://www.google.com).
 
-Heres some code, \`<div></div>\`, between 2 backticks.
 
-\'\'\'
-        codeBlock = (arr, str) => {
-        return [...arr, str]
-        }
-\'\'\'
+
+the way i do \`This an inline code\`  this
+
+
+\`\`\`
+codeBlock = (arr, str) => {
+  return [...arr, str]
+}
+\`\`\`
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
 
 - I Can
 - do it all day
@@ -54,12 +65,11 @@ Heres some code, \`<div></div>\`, between 2 backticks.
   let editorField = document.getElementById('editor');
   let previewElement = document.getElementById('preview') ;
   editorField.value = defaultText;
-  previewElement.innerHTML = marked(defaultText);
+  previewElement.innerHTML = marked.parse(defaultText);
 
 
 }
  </script>
-
 
 
 
@@ -77,7 +87,7 @@ Heres some code, \`<div></div>\`, between 2 backticks.
          <div class="row">
              <div class="col-4 bg-danger">
                     <h2>The Editor</h2>
-                    <textarea id="editor" onkeyup= "updatePreview()"></textarea>
+                    <textarea id="editor" onkeyup="updatePreview()"></textarea>
              </div>
 
              <div class="col-3">
